@@ -49,15 +49,16 @@ namespace Ex_28_16_naitouibuki
             float length1;
             float length2;
             float length3;
-            float l;
+            float x;
             float s;
+            float triArea;
             public TriangularPrism(float bottom, float triangleheight, float top)
             {
                 this.bottom = bottom;
                 this.triangleheight = triangleheight;
                 this.top = top;
-                bottom = triangleheight * triangleheight / 2;
-                l = triangleheight + triangleheight + (float)Math.Sqrt(triangleheight * triangleheight + triangleheight * triangleheight) * top;
+                triArea = bottom * triangleheight / 2;
+                x = triangleheight + triangleheight + (float)Math.Sqrt(triangleheight * triangleheight + triangleheight * triangleheight) * top;
             }
             public TriangularPrism(float length1, float length2, float length3, float top)
             {
@@ -67,16 +68,17 @@ namespace Ex_28_16_naitouibuki
                 this.top = top;
                 s = (length1 + length2 + length3) / 2;
                 bottom = (float)Math.Sqrt(s * ((s - length1) * (s - length2) * (s - length3)));
-                l = (length1 + length2 + length3) * top;
+                x = (length1 + length2 + length3) * top;
             }
             public float GetSurface()
             {
-                return bottom * 2 + l;
+                return bottom * 2 + x;
             }
             public float GetVolueme()
             {
                 return bottom * top;
             }
+            //test
             
         }
 
