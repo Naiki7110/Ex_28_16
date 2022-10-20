@@ -58,7 +58,7 @@ namespace Ex_28_16_naitouibuki
                 this.triangleheight = triangleheight;
                 this.top = top;
                 triArea = bottom * triangleheight / 2;
-                x = triangleheight + triangleheight + (float)Math.Sqrt(triangleheight * triangleheight + triangleheight * triangleheight) * top;
+                x = bottom + triangleheight + (float)Math.Sqrt(bottom * bottom + triangleheight * triangleheight) * top;
             }
             public TriangularPrism(float length1, float length2, float length3, float top)
             {
@@ -67,16 +67,16 @@ namespace Ex_28_16_naitouibuki
                 this.length3 = length3;
                 this.top = top;
                 s = (length1 + length2 + length3) / 2;
-                bottom = (float)Math.Sqrt(s * ((s - length1) * (s - length2) * (s - length3)));
+                triArea = (float)Math.Sqrt(s * ((s - length1) * (s - length2) * (s - length3)));
                 x = (length1 + length2 + length3) * top;
             }
             public float GetSurface()
             {
-                return bottom * 2 + x;
+                return triArea * 2 + x;
             }
             public float GetVolueme()
             {
-                return bottom * top;
+                return triArea * top;
             }
             //test
             
